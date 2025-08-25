@@ -1,20 +1,15 @@
-class Gnomo extends Criatura(){
+const Criatura = require("./Criatura");
 
-    constructor(nome){
-        this.nome = nome
-        this.ataqueMagico = "Chuva de Cogumelos Tóxicos"
-        this.#energia = 100;
-    }
+class Gnomo extends Criatura {
+  constructor(nome) {
+    super(nome); 
+    this.ataqueMagico = "Chuva de Cogumelos Tóxicos";
+  }
 
-    agir(){
-        if(this.#energia >= 5){
-            console.log(`${this.nome} ataca com${this.ataqueMagico}`);
-        }else{
-            console.log(`${this.nome} está sem energia para atacar`);
-        }
-
-        getEnergia(){
-            return this.#energia;
-    }
-    }
+  agir() {
+    console.log(`${this.nome} invoca ${this.ataqueMagico}!`);
+    this.alterarEnergia(-5); 
+  }
 }
+
+module.exports = Gnomo;
