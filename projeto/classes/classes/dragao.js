@@ -1,19 +1,14 @@
-class Dragao extends Criatura{
+const Criatura = require("./Criatura");
 
-    constructor(nome){
-        this.nome = nome
-        this.ataqueMagico = " Sopro de fogo infernal"
-        this.#energia = 100
-    }
-    agir(){
-        if(this.#energia >=30){
-            console.log(`${this.nome} lança ${this.ataqueMagico}`);
-        }else{
-            console.log(`${this.nome} esta sem energia`);
-        } 
-    }
-    getEnergia (){
-        return this.#energia;
-    }
+class Dragao extends Criatura {
+  constructor(nome) {
+    super(nome); 
+    this.ataqueMagico = "Sopro de Fogo Infernal";
+  }
+
+  agir() {
+    console.log(`${this.nome} lança ${this.ataqueMagico}!`);
+    this.alterarEnergia(-30); 
+  }
 }
 module.exports = Dragao;
